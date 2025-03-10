@@ -41,12 +41,12 @@ const ordersApi = createApi({
       providesTags: ["Orders"],
     }),
 
-    // ✅ Update an order (update isPaid, isDelivered, completionPercentage)
+    // ✅ Update an order (including tailor assignment)
     updateOrder: builder.mutation({
-      query: ({ orderId, isPaid, isDelivered, completionPercentage }) => ({
+      query: ({ orderId, isPaid, isDelivered, completionPercentage, tailorAssignments }) => ({
         url: `/${orderId}`,
         method: "PATCH",
-        body: { isPaid, isDelivered, completionPercentage },
+        body: { isPaid, isDelivered, completionPercentage, tailorAssignments },
       }),
       invalidatesTags: ["Orders"],
     }),

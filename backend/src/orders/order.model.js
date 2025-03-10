@@ -26,7 +26,7 @@ const orderSchema = new mongoose.Schema(
       {
         productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
         quantity: { type: Number, required: true },
-        tailor: { type: String, default: "" }, // ✅ NEW FIELD: Assign tailor name
+        tailor: { type: String, default: "" }, // ✅ New field for assigning tailor name
       },
     ],
     totalPrice: { type: Number, required: true },

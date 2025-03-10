@@ -129,39 +129,14 @@ const sendOrderNotification = async (req, res) => {
       subject = `Wahret Zmen Boutique - Order Progress Update (#${orderId})`;
       htmlMessage = `
         <p><strong>Dear ${customerName},</strong></p> 
-        <p>We are excited to update you on your order <strong>#${orderId}</strong> at <strong>Wahret Zmen Boutique</strong>.</p>
-        
-        <p>Your order is currently <strong>${completionPercentage}% completed</strong>. We are carefully preparing your items and will notify you once everything is ready.</p>
-        
-        <p><strong>Products in your order:</strong></p>
-        <ul>
-          ${order.products.map(prod => `<li>${prod.productId?.title || "Product"} (Qty: ${prod.quantity}) - Tailor: ${prod.tailor || "Not Assigned"}</li>`).join('')}
-        </ul>
-
-        <p>Thank you for your patience and for choosing Wahret Zmen Boutique! 💛</p>
-        
-        <p>Best regards,</p>
-        <p><strong>Wahret Zmen Boutique Team</strong></p>
+        <p>Your order is currently <strong>${completionPercentage}% completed</strong>. We will notify you once it's ready.</p>
+        <p>Thank you for your patience!</p>
       `;
     } else {
       subject = `Wahret Zmen Boutique - Your Order is Ready! (#${orderId})`;
       htmlMessage = `
         <p><strong>Dear ${customerName},</strong></p> 
-        <p>Great news! Your order <strong>#${orderId}</strong> at <strong>Wahret Zmen Boutique</strong> is now <strong>fully completed</strong> and ready for pickup or delivery. 🎉</p>
-
-        <p><strong>Your Order Details:</strong></p>
-        <ul>
-          ${order.products.map(prod => `<li>${prod.productId?.title || "Product"} (Qty: ${prod.quantity}) - Tailor: ${prod.tailor || "Not Assigned"}</li>`).join('')}
-        </ul>
-
-        <p>We appreciate your trust in Wahret Zmen Boutique. We hope you enjoy your items!</p>
-        
-        <p>For any inquiries or assistance, feel free to contact us.</p>
-
-        <p>See you soon! 💛</p>
-        
-        <p>Best regards,</p>
-        <p><strong>Wahret Zmen Boutique Team</strong></p>
+        <p>Your order is now <strong>fully completed</strong> and ready for pickup or delivery.</p>
       `;
     }
 

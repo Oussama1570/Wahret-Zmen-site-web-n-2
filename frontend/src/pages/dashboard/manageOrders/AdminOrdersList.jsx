@@ -32,6 +32,7 @@ const AdminOrdersList = () => {
   const handleChange = (field, value) => {
     setUpdatedValues((prev) => ({ ...prev, [field]: value }));
   };
+  
 
   // ✅ Handle Send Notification
   const handleSendNotification = async (orderId, email, name, completionPercentage) => {
@@ -157,12 +158,7 @@ const AdminOrdersList = () => {
     Save
   </button>
 
-  <button
-    onClick={() => handleDelete(order._id)}
-    className="font-medium bg-red-500 py-2 px-4 rounded-full text-white text-sm hover:bg-red-600 transition"
-  >
-    Delete
-  </button>
+  
 
   <button
     onClick={() => handleSendNotification(order._id, order.email, order.name, order.completionPercentage)}
